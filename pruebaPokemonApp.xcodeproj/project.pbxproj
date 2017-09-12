@@ -16,6 +16,8 @@
 		2E938FD51F62D620009BC157 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E938FD31F62D620009BC157 /* LaunchScreen.storyboard */; };
 		2E938FE01F62D621009BC157 /* pruebaPokemonAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E938FDF1F62D621009BC157 /* pruebaPokemonAppTests.m */; };
 		2E938FEB1F62D621009BC157 /* pruebaPokemonAppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E938FEA1F62D621009BC157 /* pruebaPokemonAppUITests.m */; };
+		2EA08CD71F687C7500DB2DE6 /* PokemonCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA08CD61F687C7500DB2DE6 /* PokemonCellTableViewCell.m */; };
+		2EA08CDA1F688CF800DB2DE6 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EA08CD91F688CF800DB2DE6 /* DetailsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		2E938FE61F62D621009BC157 /* pruebaPokemonAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = pruebaPokemonAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E938FEA1F62D621009BC157 /* pruebaPokemonAppUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = pruebaPokemonAppUITests.m; sourceTree = "<group>"; };
 		2E938FEC1F62D621009BC157 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EA08CD51F687C7500DB2DE6 /* PokemonCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PokemonCellTableViewCell.h; sourceTree = "<group>"; };
+		2EA08CD61F687C7500DB2DE6 /* PokemonCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PokemonCellTableViewCell.m; sourceTree = "<group>"; };
+		2EA08CD81F688CF800DB2DE6 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
+		2EA08CD91F688CF800DB2DE6 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +112,12 @@
 				2E938FC51F62D620009BC157 /* AppDelegate.h */,
 				2E938FC61F62D620009BC157 /* AppDelegate.m */,
 				2E938FC81F62D620009BC157 /* ViewController.h */,
+				2EA08CD81F688CF800DB2DE6 /* DetailsViewController.h */,
+				2EA08CD91F688CF800DB2DE6 /* DetailsViewController.m */,
 				2E938FC91F62D620009BC157 /* ViewController.m */,
 				2E938FCB1F62D620009BC157 /* Main.storyboard */,
+				2EA08CD51F687C7500DB2DE6 /* PokemonCellTableViewCell.h */,
+				2EA08CD61F687C7500DB2DE6 /* PokemonCellTableViewCell.m */,
 				2E938FD11F62D620009BC157 /* Assets.xcassets */,
 				2E938FD31F62D620009BC157 /* LaunchScreen.storyboard */,
 				2E938FD61F62D620009BC157 /* Info.plist */,
@@ -279,6 +289,8 @@
 				2E938FCA1F62D620009BC157 /* ViewController.m in Sources */,
 				2E938FC71F62D620009BC157 /* AppDelegate.m in Sources */,
 				2E938FD01F62D620009BC157 /* pruebaPokemonApp.xcdatamodeld in Sources */,
+				2EA08CDA1F688CF800DB2DE6 /* DetailsViewController.m in Sources */,
+				2EA08CD71F687C7500DB2DE6 /* PokemonCellTableViewCell.m in Sources */,
 				2E938FC41F62D620009BC157 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -511,6 +523,7 @@
 				2E938FF11F62D621009BC157 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E938FF21F62D621009BC157 /* Build configuration list for PBXNativeTarget "pruebaPokemonAppTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +532,7 @@
 				2E938FF41F62D621009BC157 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2E938FF51F62D621009BC157 /* Build configuration list for PBXNativeTarget "pruebaPokemonAppUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +541,7 @@
 				2E938FF71F62D621009BC157 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
