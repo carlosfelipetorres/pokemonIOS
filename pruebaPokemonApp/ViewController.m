@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "PokemonCellTableViewCell.h"
 #import "DetailsViewController.h"
+#import <AFNetworking/AFNetworking.h>
 @interface ViewController ()
 
 {
@@ -22,14 +23,21 @@ static NSString *segueShowDetails = @"showDetail";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   // NSString *URLString = @"";
+   // NSDictionary *parameters = @{@"foo": @"bar", @"baz": @[@1, @2, @3]};
     
-    
-    pokemonList = [NSMutableArray
-                   arrayWithObjects:@{@"image":@"https://www.mundoperro.net/wp-content/uploads/Nombres-de-perro-con-la-letra-G.jpg",@"name":@"pikachu"},
-                                    @{@"image":@"https://www.mundoperro.net/wp-content/uploads/Nombres-de-perro-con-la-letra-G.jpg",@"name":@"charizar"},
-                                    @{@"image":@"https://www.mundoperro.net/wp-content/uploads/Nombres-de-perro-con-la-letra-G.jpg",@"name":@"doggichar"},
-                                        nil];
-    // Do any additional setup after loading the view, typically from a nib.
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:@"http://pokeapi.co/api/v2/pokemon" parameters:nil
+        progress:^(NSProgress * _Nonnull downloadProgress) {}
+        success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            NSLog(@"response object: %@", responseObject);
+            NSNumber *count = responseObject[@"count"];
+            pokemonList = responseObject[@"results"];
+            [self.tableView reloadData];
+        }
+        failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            NSLog(@"response error: %@", error);
+        }];
 }
 
 
@@ -50,7 +58,7 @@ static NSString *segueShowDetails = @"showDetail";
     
     NSDictionary *tempDic = [pokemonList objectAtIndex:indexPath.row];
     
-    NSURL *url = [NSURL URLWithString:[tempDic objectForKey:@"image"]];
+    NSURL *url = [NSURL URLWithString:@"http://images6.fanpop.com/image/photos/38900000/Pokeball-pokemon-38912743-120-120.png"];
     NSData *data = [NSData dataWithContentsOfURL:url];
     
     cell.pokemonImage.image = [UIImage imageWithData:data];
