@@ -7,10 +7,13 @@
 //
 
 #import "DetailsViewController.h"
+#import <AFNetworking/AFNetworking.h>
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *pokemonImage;
 @property (weak, nonatomic) IBOutlet UILabel *labelName;
+@property (weak, nonatomic) IBOutlet UILabel *labelWeight;
+@property (weak, nonatomic) IBOutlet UILabel *labelHeight;
 
 @end
 
@@ -18,13 +21,28 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURL *url = [NSURL URLWithString:[_data objectForKey:@"image"]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
     
-    _pokemonImage.image = [UIImage imageWithData:data];
-    _labelName.text = [_data objectForKey:@"name"];
+    NSString *name = [_data objectForKey:@"name"];
+    _labelName.text = name;
+    
+    NSString *url = [NSString stringWithFormat: @"http://pokeapi.co/api/v2/pokemon/%@/", name];
 
-    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    [manager GET:url parameters:nil
+        progress:^(NSProgress * _Nonnull downloadProgress) {}
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             //NSLog(@"response object: %@", responseObject);
+             NSDictionary *sprites = responseObject[@"sprites"];
+             NSURL *url = [NSURL URLWithString:[sprites objectForKey:@"front_default"]];
+             NSData *data = [NSData dataWithContentsOfURL:url];
+             
+             _labelWeight.text = [NSString stringWithFormat:@"%i", responseObject[@"weight"]];
+             _labelHeight.text = [NSString stringWithFormat:@"%i", responseObject[@"height"]];
+             _pokemonImage.image = [UIImage imageWithData:data];
+         }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             NSLog(@"response error: %@", error);
+         }];
 }
 
 - (void)didReceiveMemoryWarning {

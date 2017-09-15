@@ -23,14 +23,12 @@ static NSString *segueShowDetails = @"showDetail";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   // NSString *URLString = @"";
-   // NSDictionary *parameters = @{@"foo": @"bar", @"baz": @[@1, @2, @3]};
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     [manager GET:@"http://pokeapi.co/api/v2/pokemon" parameters:nil
         progress:^(NSProgress * _Nonnull downloadProgress) {}
         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-            NSLog(@"response object: %@", responseObject);
+            //NSLog(@"response object: %@", responseObject);
             NSNumber *count = responseObject[@"count"];
             pokemonList = responseObject[@"results"];
             [self.tableView reloadData];
